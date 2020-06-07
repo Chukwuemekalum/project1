@@ -1,0 +1,156 @@
+/* http://www.menucool.com/jquery-slider */
+
+#thumbnail-slider {
+    margin:4px auto; /*center-aligned*/
+    width:100%;/*width:400px;*/
+    max-width:800px;
+    padding:0px 20px;
+    background-color:#f2f1ea;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    box-sizing:border-box;
+    position:relative;
+    -webkit-user-select: none;
+    user-select:none;
+}
+
+#thumbnail-slider div.inner {
+    /*the followings should not be changed */
+    position:relative;
+    overflow:hidden;
+    padding:2px 0;
+    margin:0;
+}
+
+ 
+#thumbnail-slider div.inner ul {
+    /*the followings should not be changed */
+    white-space:nowrap;
+    position:relative;
+    left:0; top:0;
+    list-style:none;
+    font-size:0;
+    padding:0;
+    margin:0;
+    float:left!important;
+    width:auto!important;
+    height:auto!important;
+}
+
+#thumbnail-slider ul li {
+    display:inline-block;
+    *display:inline!important; /*IE7 hack*/
+    border:3px solid black;
+    margin:0;
+    margin-right:10px; /* Spacing between thumbs*/
+    transition:border-color 0.3s;
+    box-sizing:content-box;
+    text-align:center;
+    vertical-align:middle;
+    padding:0;
+    position:relative;
+    list-style:none;
+    backface-visibility:hidden;
+}
+
+#thumbnail-slider ul li.active {
+    border-color:white;
+}
+
+#thumbnail-slider .thumb {
+    background-color:rgba(0,0,0,0.3);
+    background-size:contain;/*Note: If transitionType is zoom, it will be overridden to cover.*/
+
+    border-radius:3px;
+
+    cursor:default;
+    display:block;
+    position: absolute;
+    width:100%;
+    height:100%;
+    background-repeat:no-repeat;
+    background-position:center center;
+}
+
+/* --------- navigation controls ------- */
+/* The nav id should be: slider id + ("-prev", "-next", and "-pause-play") */
+
+#thumbnail-slider-pause-play {display:none;} /*.pause*/
+
+#thumbnail-slider-prev, #thumbnail-slider-next
+{
+    position: absolute;
+    display:inline-block;
+    width:42px;
+    height:56px;
+    line-height:56px;
+    top: 50%;
+    margin-top:-28px;
+    background-color:rgba(0,0,0,0.4);
+    background-color:#ccc\9;/*IE8 hack*/
+    backface-visibility:hidden;
+    color:white;
+    overflow:hidden;
+    white-space:nowrap;
+    -webkit-user-select: none;
+    user-select:none;
+    border-radius:2px;
+    z-index:10;
+    opacity:0.3; 
+    font-family:sans-serif;   
+    font-size:13px;
+    cursor:pointer;
+    -webkit-transition:all 0.7s;
+    transition:all 0.7s;
+}
+
+
+#thumbnail-slider-prev {
+    left:0px; right:auto;
+}
+
+#thumbnail-slider-next {
+    left:auto; right:0px;
+}
+#thumbnail-slider-next.disabled, #thumbnail-slider-prev.disabled {
+    opacity:0.3;
+    cursor:default;
+}
+
+
+/* arrows */
+#thumbnail-slider-prev::before, #thumbnail-slider-next::before {
+    position: absolute;
+    top: 19px;
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-left: 6px solid black;
+    border-top: 6px solid black;
+}
+
+#thumbnail-slider-prev::before {
+    left:7px;
+    -ms-transform:rotate(-45deg);/*IE9*/
+    -webkit-transform:rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+#thumbnail-slider-next::before {
+    right:7px;
+    -ms-transform:rotate(135deg);/*IE9*/
+    -webkit-transform:rotate(135deg);
+    transform: rotate(135deg);
+}
+
+/*Responsive settings*/
+@media only screen and (max-width:736px){
+
+    #thumbnail-slider {padding:0px;}
+
+    #thumbnail-slider-prev {left:0px;
+        display: none;}
+
+    #thumbnail-slider-next {right:0px;
+        display: none;}
+}
